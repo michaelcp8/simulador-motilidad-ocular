@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>UCO - Simulador motilidad ocular</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet href="static/css/custom.css"/>
+</head>
+
+<body>
+    <div id="infoButton" class="info"><img alt="Información" width="32" height="32" src="static/img/icon-info.png"/></div>
+
+    <div class="lite-modal" id="infoBox" hidden>
+        <h1>Simulador motilidad ocular</h1>
+        <hr>
+            Pasos para utilizar el simulador:
+            <blockquote>
+                1. Imprimir un <a href="/tag.pdf">tag</a><br>
+                2. Configurar el simulador con una patología u oclusores
+            </blockquote>
+            Autor: Michael Castillo Polo.
+        <br>
+        <b>NOTA: IE no es compatible con esta tecnología.</b>
+    </div>
+    
+    <div id="model" style="position: absolute; left: 0px; top: 0px;"></div>
+    <span id="pose" style="z-index: 5; position: absolute; right: 0px; bottom:0px;"></span>
+    <button id="brow" style="position: absolute; top: 250px; left: 15px;" hidden>Cejas</button>
+    <video id="webcam"  width="335" height="235" style="display:none;"></video>
+    <canvas id="canvas" width="335" height="235"></canvas>
+    
+    <ul class="tabs" id="menu" hidden>
+        <li>
+            <input type="radio" name="tabs" id="tab1" checked>
+            <label for="tab1">Exploración</label>
+            <div id="tab-content1" class="tab-content">
+                <div>
+                    <span>Ojo derecho:</span>
+                    <select id="rightType">
+                        <option value="0">-- Sin patología --</option>
+                        <option value="1">Endotropia</option>
+                        <option value="2">Exotropia</option>
+                        <option value="3">Hipertropia</option>
+                        <option value="4">Hipotropia</option>
+                    </select>
+                    <select id="rightGrades" disabled>
+                        <option value="15">15º</option>
+                        <option value="30">30º</option>
+                        <option value="45">45º</option>
+                    </select>
+                </div>
+                <div style="padding-top: 20px;">
+                    <span>Ojo izquierdo:</span>
+                    <select id="leftType">
+                        <option value="0">-- Sin patología --</option>
+                        <option value="1">Endotropia</option>
+                        <option value="2">Exotropia</option>
+                        <option value="3">Hipertropia</option>
+                        <option value="4">Hipotropia</option>
+                    </select>
+                    <select id="leftGrades" disabled>
+                        <option value="15">15º</option>
+                        <option value="30">30º</option>
+                        <option value="45">45º</option>
+                    </select>
+                </div>
+                <div style="padding-top: 20px;">
+                    <span>Oclusor: </span>
+                    <select id="occluderType">
+                        <option value="0">-- No --</option>
+                        <option value="1">Derecho</option>
+                        <option value="2">Izquierdo</option>
+                    </select>
+                    <span style="padding-left: 30px;">Opaco: </span>
+                    <input type="checkbox" id="opacity">
+                </div>
+            </div>
+        </li>
+        <li>
+            <input type="radio" name="tabs" id="tab2">
+            <label for="tab2">Examen</label>
+            <div id="tab-content2" class="tab-content">
+                <button id="generatePacient">Generar paciente</button>
+                <div style="padding-top: 20px;">
+                    <span>Diagnóstico:</span>
+                    <select id="examEye" disabled>
+                        <option value="true">Ojo derecho</option>
+                        <option value="">Ojo izquierdo</option>
+                    </select>
+                    <select id="examType" disabled>
+                        <option value="1">Endotropia</option>
+                        <option value="2">Exotropia</option>
+                        <option value="3">Hipertropia</option>
+                        <option value="4">Hipotropia</option>
+                    </select>
+                    <select id="examGrades" disabled>
+                        <option value="15">15º</option>
+                        <option value="30">30º</option>
+                        <option value="45">45º</option>
+                    </select>
+                    <button id="checkExam" disabled>Comprobar</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <!-- jQuery -->
+    <script src="static/js/jquery-1.9.1.js"></script>
+    <script src="static/js/jquery-ui.js"></script>
+    
+    <!-- Custom JavaScript-->
+    <script src="static/js/custom.js"></script>
+    <script src="static/js/compatibility.js"></script>
+    <script src="static/js/aruco.js"></script>
+    <script src="static/js/svd.js"></script>
+    <script src="static/js/posit2.js"></script> 
+    <script src="static/js/cv.js"></script>
+    <script src="static/js/three.min.js"></script>
+    <script src="static/js/lite-modal.min.js"></script>
+    <script src="static/js/THREEx.FullScreen.js"></script>
+    <script src="static/js/THREEx.WindowResize.js"></script>
+    
+</body>
+</html>
