@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=stylesheet href="static/css/custom.css"/>
+    <link rel=stylesheet href="static/css/jquery.modal.css"/>
 </head>
 
 <body>
     <div id="infoButton" class="info"><img alt="Información" width="32" height="32" src="static/img/icon-info.png"/></div>
 
-    <div class="lite-modal" id="infoBox" hidden>
-        <h1>Simulador motilidad ocular</h1>
+    <div class="modal" id="infoBox" style="display:none;">
+        <h2>Simulador motilidad ocular</h2>
         <hr>
             Pasos para utilizar el simulador:
             <blockquote>
@@ -24,10 +25,9 @@
         <b>NOTA: IE no es compatible con esta tecnología.</b>
     </div>
     
-    <div id="model" style="position: absolute; left: 0px; top: 0px;"></div>
-    <span id="pose" style="z-index: 5; position: absolute; right: 0px; bottom:0px;"></span>
+    <div id="model" style="position: absolute; left: 0; top: 0;"></div>
     <button id="brow" style="position: absolute; top: 250px; left: 15px;" hidden>Cejas</button>
-    <video id="webcam"  width="335" height="235" style="display:none;"></video>
+    <video id="webcam"  width="335" height="235" style="display: none;"></video>
     <canvas id="canvas" width="335" height="235"></canvas>
     
     <ul class="tabs" id="menu" hidden>
@@ -107,7 +107,7 @@
 
     <!-- jQuery -->
     <script src="static/js/jquery-1.9.1.js"></script>
-    <script src="static/js/jquery-ui.js"></script>
+    <script src="static/js/jquery.modal.js"></script>
     
     <!-- Custom JavaScript-->
     <script src="static/js/custom.js"></script>
@@ -117,7 +117,6 @@
     <script src="static/js/posit2.js"></script> 
     <script src="static/js/cv.js"></script>
     <script src="static/js/three.min.js"></script>
-    <script src="static/js/lite-modal.min.js"></script>
     <script src="static/js/THREEx.FullScreen.js"></script>
     <script src="static/js/THREEx.WindowResize.js"></script>
     

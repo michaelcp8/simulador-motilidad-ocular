@@ -29,8 +29,8 @@ var distX = 33.6;
 
 $(document).ready(function () {
     
-	$("#infoButton").button().click(function () { 
-	    liteModal.open('#infoBox');
+	$("#infoButton").click(function () { 
+	    $('#infoBox').modal();
 	});
 
     compatibility.getUserMedia(
@@ -159,7 +159,7 @@ function createModels(){
      
     // RENDER 
 	renderer = new THREE.WebGLRenderer({alpha: true, antialias:true});
-	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.setSize(window.innerWidth-4, window.innerHeight-4);
 	container.appendChild(renderer.domElement);
 
     // LUCES

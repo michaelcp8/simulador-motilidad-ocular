@@ -17,14 +17,6 @@ body {
 	left: 4px;
 }
 
-.lite-modal {
-  padding: 0px 40px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  line-height: 1.6em;
-}
-
 /* Tabs */
 .tabs input[type=radio] {
     position: absolute;
@@ -74,7 +66,7 @@ body {
     display: block;
 }
 .tab-content{
-  z-index: 2;
+  z-index: 1;
   display: none;
   text-align: left;
   width: 100%;
