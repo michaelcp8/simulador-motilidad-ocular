@@ -8,7 +8,7 @@ var container = document.getElementById('model');
 var context = canvas.getContext("2d");
 
 var posit, detector, imageData;
-            
+var flag = 0;
 var modelSize = 35.0; //milímetros del marker impreso
 
 // Modelado 3D
@@ -28,41 +28,50 @@ var distX = 33.6;
 ======================================*/
 
 $(document).ready(function () {
-    
-	$("#infoButton").click(function () { 
+    $('#infoBox').modal();
+});
+
+// Función que despliega el pop-up de información
+$("#infoButton").click(function () { 
 	    $('#infoBox').modal();
-	});
+});
 
-    compatibility.getUserMedia(
-        // Restricciones (contraints)
-        {
-        video: true,
-        audio: false
-        },
-        
-        // Funcion de finalizacion (Succes-Callback)
-        function(localMediaStream) {
-            $('#menu').show();
-            $('#brow').show();
+// Función que obtiene permisos para acceder a la cámara
+$('#infoBox').on($.modal.AFTER_CLOSE, function(event, modal) {
+    if (flag == 0) {
+        compatibility.getUserMedia(
+            // Restricciones (contraints)
+            {
+            video: true,
+            audio: false
+            },
             
-            video.src = window.URL.createObjectURL(localMediaStream);
-            video.play();
+            // Funcion de finalizacion (Succes-Callback)
+            function(localMediaStream) {
+                $('#menu').show();
+                $('#brow').show();
+                
+                video.src = window.URL.createObjectURL(localMediaStream);
+                video.play();
+                
+                detector = new AR.Detector();
+                posit = new POS.Posit(modelSize, canvas.width);
+    
+                createModels();
+                
+                compatibility.requestAnimationFrame(tick);
+            },
             
-            detector = new AR.Detector();
-            posit = new POS.Posit(modelSize, canvas.width);
-
-            createModels();
-            
-            compatibility.requestAnimationFrame(tick);
-        },
-        
-        // errorCallback
-        function(err) {
-            alert(err.name);
-        }
-    );
+            // errorCallback
+            function(err) {
+                alert(err.name);
+            }
+        );
+        flag = 1;
+    }
 });
         
+// Función que obtiene los frames
 function tick() {
     compatibility.requestAnimationFrame(tick);
                 
