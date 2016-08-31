@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>UCO - Simulador motilidad ocular</title>
+    <title>TFG - Simulador motilidad ocular</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=stylesheet href="static/css/custom.css"/>
@@ -17,15 +17,27 @@
         <hr>
             Pasos para utilizar el simulador:
             <blockquote>
-                1. Imprimir un <a href="/tag.pdf">tag</a><br>
-                2. Configurar el simulador con una patología u oclusores
+                1. Permitir acceso a la cámara<br>
+                2. Imprimir un <a href="/tag.pdf">tag</a><br>
+                3. Configurar el simulador con una patología u oclusores
             </blockquote>
-            Autor: Michael Castillo Polo.
-        <br>
+            <p align="center">
+            <b>Trabajo Fin de Grado de la Universidad de Córdoba</b>
+            </p>
+            Autor:
+            <blockquote>
+                Michael Castillo Polo
+            </blockquote>
+            Directores:
+            <blockquote>
+                Antonio Araúzo Azofra<br>
+                Fernando Labella Quesada
+            </blockquote>
         <b>NOTA: IE no es compatible con esta tecnología.</b>
     </div>
     
     <div id="model" style="position: absolute; left: 0; top: 0;"></div>
+    <div id="pose" style="z-index: 5; right: 0; bottom: 0;"></div>
     <button id="brow" style="position: absolute; top: 250px; left: 15px;" hidden>Cejas</button>
     <video id="webcam"  width="335" height="235" style="display: none;"></video>
     <canvas id="canvas" width="335" height="235"></canvas>
