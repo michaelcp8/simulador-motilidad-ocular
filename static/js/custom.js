@@ -132,7 +132,7 @@ function updatePosition(markers){
         
         updateObject(rightEye, rightLight, pose.bestTranslation, distY, distX, rightXPhase, rightYPhase);
         updateObject(leftEye, leftLight, pose.bestTranslation, distY, -distX, leftXPhase, leftYPhase);
-        updatePoseHTML("pose", pose.bestTranslation);
+        //updatePoseHTML("pose", pose.bestTranslation);
     }
     else {
         leftLight.visible = false;
@@ -150,7 +150,7 @@ function updateObject(object, light, translation, Y, X, phaseX, phaseY) {
 }
 
 //Función que muestra por pantalla las coordenadas del tag
-function updatePoseHTML(id, translation){
+/*function updatePoseHTML(id, translation){
     var d = document.getElementById(id);
     d.innerHTML = " x: " + (translation[0] | 0)
         + " y: " + (translation[1] | 0)
@@ -159,7 +159,7 @@ function updatePoseHTML(id, translation){
         //+ " Eje y: " + (180/Math.PI) * (Math.atan2((distX - translation[0]), translation[2]) + rightPhase)
         //+ "<br> OJO IZQUIERDO: Eje x: " + (180/Math.PI) * Math.atan2((distY - translation[1]), translation[2]) 
         //+ " Eje y: " + (180/Math.PI) * (Math.atan2((-distX - translation[0]), translation[2]) + leftPhase);
-}
+}*/
 
 // Función que crea el modelo
 function createModels(){
